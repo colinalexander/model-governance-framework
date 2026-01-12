@@ -1,0 +1,178 @@
+\section{Change Management and Version Control}
+
+\subsection{Principle of Scope Preservation}
+
+Models are approved for use only within their declared Operating Context and validated configuration.
+
+Any change that alters the data, assumptions, objectives, constraints, or usage of a model alters the question the model is answering and therefore constitutes a \textbf{change in model scope}.
+
+Changes in scope must be governed explicitly. Undocumented or implicit changes are prohibited.
+
+\subsection{Definition of a Model Change}
+
+The following changes constitute a \textbf{new model version} and are subject to this section:
+
+\subsubsection{Data and Feature Changes}
+
+\begin{itemize}
+  \item addition, removal, or modification of data sources;
+  \item changes in data frequency, aggregation, or preprocessing;
+  \item changes to feature definitions, transformations, or lags.
+\end{itemize}
+
+\subsubsection{Objective and Estimation Changes}
+
+\begin{itemize}
+  \item changes to training objectives or loss functions;
+  \item changes to estimation methods or fitting procedures;
+  \item changes to regularization, constraints, or optimization targets.
+\end{itemize}
+
+\subsubsection{Portfolio and Execution Changes}
+
+\begin{itemize}
+  \item changes to portfolio construction rules;
+  \item changes to rebalancing frequency or timing;
+  \item changes to execution logic or order assumptions.
+\end{itemize}
+
+\subsubsection{Assumption and Constraint Changes}
+
+\begin{itemize}
+  \item changes to transaction cost or market impact models;
+  \item changes to liquidity or capacity assumptions;
+  \item changes to risk constraints or exposure limits.
+\end{itemize}
+
+\subsubsection{Usage and Decision Changes}
+
+\begin{itemize}
+  \item changes to the decisions the model informs;
+  \item changes in capital allocation linked to the model;
+  \item changes in integration with other models or systems.
+\end{itemize}
+
+Cosmetic, stylistic, or documentation-only changes do not constitute a model change but must still be logged.
+
+\subsection{Model Versioning Requirements}
+
+Each model version must be uniquely identified and recorded in the Model Registry.
+
+For each version, the following must be retained:
+
+\begin{itemize}
+  \item version identifier and timestamp;
+  \item description of changes relative to the prior version;
+  \item rationale for the change;
+  \item updated Operating Context, if applicable;
+  \item summary comparison of behavior relative to the prior version.
+\end{itemize}
+
+Prior versions may not be overwritten or deleted.
+
+\subsection{Classification of Changes}
+
+Model changes are classified based on their impact.
+
+\subsubsection{Non-Impacting Changes}
+
+\begin{itemize}
+  \item Documentation clarifications
+  \item Code refactoring with no behavioral impact
+\end{itemize}
+
+\textbf{Governance Requirement}\\
+Logging only. No re-validation required.
+
+\subsubsection{Diagnostic-Scope Changes}
+
+\begin{itemize}
+  \item Changes affecting exploratory or diagnostic use only
+  \item No effect on implementability or capital allocation
+\end{itemize}
+
+\textbf{Governance Requirement}\\
+Research owner signoff and documentation update.
+
+\subsubsection{Translational or Deployable Changes}
+
+\begin{itemize}
+  \item Any change affecting implementation behavior, risk, or performance
+  \item Any change affecting live or potential capital allocation
+\end{itemize}
+
+\textbf{Governance Requirement}\\
+Full re-validation and approval prior to use.
+
+\subsection{Prohibition on Retroactive Justification}
+
+Model changes may not be justified using performance observed prior to the change.
+
+Evaluation of a new model version must be conducted prospectively relative to its declared Operating Context.
+
+Backfilling or reinterpretation of historical results under modified assumptions is prohibited.
+
+\subsection{Approval Authority for Changes}
+
+Approval authority depends on model classification and change impact:
+
+\begin{itemize}
+  \item \textbf{Diagnostic models}: research owner approval
+  \item \textbf{Translational models}: research and risk management approval
+  \item \textbf{Deployable models}: investment committee or delegated authority approval
+\end{itemize}
+
+Approval must be documented prior to use.
+
+\subsection{Emergency Changes}
+
+In exceptional circumstances (e.g., market structure changes, operational issues), temporary changes may be implemented to mitigate risk.
+
+Emergency changes must:
+
+\begin{itemize}
+  \item be clearly labeled as temporary;
+  \item be documented within one business day; and
+  \item undergo formal review and approval as soon as practicable.
+\end{itemize}
+
+Emergency status does not exempt the model from subsequent validation.
+
+\subsection{Audit Trail and Traceability}
+
+The firm must maintain an auditable trail linking:
+
+\begin{itemize}
+  \item model versions;
+  \item operating contexts;
+  \item validation results;
+  \item approvals; and
+  \item deployment dates.
+\end{itemize}
+
+The audit trail must support reconstruction of:
+
+\begin{itemize}
+  \item what model version was used;
+  \item under what assumptions; and
+  \item for what decisions at any point in time.
+\end{itemize}
+
+\subsection{Consequences of Unauthorized Changes}
+
+Unauthorized or undocumented model changes constitute a governance breach.
+
+Consequences may include:
+
+\begin{itemize}
+  \item immediate suspension of model use;
+  \item reduction or removal of capital allocation;
+  \item mandatory re-validation; and
+  \item escalation to senior management or the Investment Committee.
+\end{itemize}
+
+\subsection{Guiding Rule}
+
+\begin{quote}
+\textbf{A model that has changed is a different model. Governance exists to ensure that this is recognized before capital is affected.}
+\end{quote}

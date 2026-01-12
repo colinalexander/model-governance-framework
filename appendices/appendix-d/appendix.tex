@@ -1,0 +1,333 @@
+\section{Appendix D: Worked Example (Passing Case)}
+
+\subsection{Stability-Aware Equity Factor Overlay}
+
+\subsubsection{High-level description}
+
+A researcher proposes a \textbf{stability-aware ranking overlay} for an existing U.S. equity factor sleeve.
+
+Key difference from the failing case:
+
+\begin{itemize}
+  \item the goal is \textbf{not higher raw IC}
+  \item the goal is \textbf{reducing turnover without destroying signal expression}
+\end{itemize}
+
+This is a design-aligned proposal, not an ``alpha grab.''
+
+\subsubsection{Step 1: Appendix A -- Model Context Summary}
+
+\textbf{A. Model Identification}
+
+\begin{itemize}
+  \item \textbf{Model ID:} EQ-STAB-004
+  \item \textbf{Model Name:} Stability-Aware Rank Smoother
+  \item \textbf{Model Classification:} \(\checkmark\) Deployable
+  \item \textbf{Lifecycle Status:} Research
+  \item \textbf{Model Owner:} Equity Quant Research Lead
+  \item \textbf{Governance Reviewer:} Equity Risk Lead
+  \item \textbf{Associated Portfolio:} U.S. Equity Factor Sleeve
+\end{itemize}
+
+\textbf{B. Intended Use}
+
+\textbf{Primary Decision Supported}
+
+\begin{quote}
+Modify cross-sectional rankings used in monthly factor portfolio rebalances to reduce unnecessary turnover near cutoff thresholds.
+\end{quote}
+
+\textbf{Explicitly Excluded Uses}
+
+\begin{quote}
+Alpha forecasting, intraday timing, discretionary stock selection.
+\end{quote}
+
+\textbf{Good:} this is an implementation control, not a return forecaster.
+
+\textbf{C. Declared Operating Context}
+
+\textbf{Asset Universe}
+
+\begin{itemize}
+  \item U.S. equities, top 1,200 by liquidity
+  \item Monthly reconstitution
+\end{itemize}
+
+\textbf{Data Inputs}
+
+\begin{itemize}
+  \item Existing factor ranks
+  \item Prior-month model scores
+  \item No new predictive features
+\end{itemize}
+
+\textbf{Decision Horizon}
+
+\begin{itemize}
+  \item Signal horizon: unchanged (monthly)
+  \item Rebalancing: monthly
+\end{itemize}
+
+\textbf{Portfolio Construction}
+
+\begin{itemize}
+  \item Same top/bottom decile construction
+  \item Same gross exposure (2x NAV)
+\end{itemize}
+
+\textbf{Transaction Costs}
+
+\begin{itemize}
+  \item Evaluated at 10, 15, and 20 bps one-way
+\end{itemize}
+
+\textbf{Risk Constraints}
+
+\begin{itemize}
+  \item Identical to existing sleeve
+\end{itemize}
+
+\textbf{Capacity}
+
+\begin{itemize}
+  \item Evaluated at current sleeve size (\$500MM gross)
+\end{itemize}
+
+\textbf{Good:} environment is inherited and frozen.
+
+\textbf{D. Evaluation and Evidence Summary}
+
+\textbf{Evaluation Design}
+
+\begin{itemize}
+  \item Paired backtest vs baseline sleeve
+  \item Identical holdings rules and costs
+  \item Only ranking stability modified
+\end{itemize}
+
+\textbf{Key Metrics}
+
+\begin{itemize}
+  \item IC: -3\% relative to baseline
+  \item Annualized turnover: -35\%
+  \item Net Sharpe: +0.10 to +0.15 improvement (cost-dependent)
+\end{itemize}
+
+\textbf{Trade-Offs Observed}
+
+\begin{quote}
+Small reduction in ranking sharpness is more than offset by lower cost drag.
+\end{quote}
+
+\textbf{Good:} this is exactly the kind of trade-off the framework is built to evaluate.
+
+\textbf{E. Assumptions and Fragilities}
+
+\textbf{Key Assumptions}
+
+\begin{itemize}
+  \item Benefit depends on monthly rebalance discipline
+  \item No benefit under quarterly rebalance (turnover already low)
+\end{itemize}
+
+\textbf{Known Fragilities}
+
+\begin{quote}
+Over-smoothing degrades performance if stability penalty is too strong.
+\end{quote}
+
+\textbf{Good:} fragility acknowledged and bounded.
+
+\textbf{F. Monitoring Expectations}
+
+\textbf{Primary Metrics}
+
+\begin{itemize}
+  \item Rank stability
+  \item Turnover vs baseline
+  \item Cost drag
+\end{itemize}
+
+\textbf{Expected Ranges}
+
+\begin{itemize}
+  \item Turnover reduction: 25--45\%
+  \item IC degradation: \(\leq\) 5\%
+\end{itemize}
+
+\textbf{G. Capital Allocation Controls}
+
+\begin{itemize}
+  \item Initial deployment: full sleeve (overlay replaces baseline)
+  \item No increase in gross exposure
+  \item Rollback trigger if IC degradation \(>\) 10\%
+\end{itemize}
+
+\textbf{H. Change Triggers}
+
+\begin{itemize}
+  \item \(\checkmark\) Costs
+  \item \(\checkmark\) Rebalance frequency
+  \item \(\checkmark\) Portfolio rules
+\end{itemize}
+
+\textbf{I. Approvals}
+
+\begin{itemize}
+  \item Model Owner: \(\checkmark\)
+  \item Governance Reviewer: \(\checkmark\)
+\end{itemize}
+
+\subsubsection{Step 2: Appendix B -- Deployment Approval Checklist}
+
+Now the crucial part.
+
+\textbf{B. Context and Scope Verification}
+
+\begin{itemize}
+  \item \(\checkmark\) Model Context Summary attached
+  \item \(\checkmark\) Intended use narrow and explicit
+  \item \(\checkmark\) No scope creep or undeclared assumptions
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{C. Evaluation and Evidence Alignment}
+
+\begin{itemize}
+  \item \(\checkmark\) Evaluation matches live sleeve mechanics
+  \item \(\checkmark\) Costs evaluated conservatively
+  \item \(\checkmark\) Results shown as trade-offs
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{D. Robustness and Fragility Assessment}
+
+\begin{itemize}
+  \item \(\checkmark\) Sensitivity to penalty strength evaluated
+  \item \(\checkmark\) Non-knife-edge region identified
+  \item \(\checkmark\) Failure modes documented
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{E. Implementation Feasibility}
+
+\begin{itemize}
+  \item \(\checkmark\) Turnover reduction consistent at scale
+  \item \(\checkmark\) No new liquidity assumptions
+  \item \(\checkmark\) No operational complexity added
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{F. Monitoring and Risk Controls}
+
+\begin{itemize}
+  \item \(\checkmark\) Metrics directly tied to design intent
+  \item \(\checkmark\) Thresholds enforceable ex ante
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{G. Capital Allocation Controls}
+
+\begin{itemize}
+  \item \(\checkmark\) No incremental capital risk
+  \item \(\checkmark\) No scale-up pressure
+  \item \(\checkmark\) Clear rollback conditions
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{H. Independent Review}
+
+\begin{itemize}
+  \item \(\checkmark\) Independent review completed
+  \item \(\checkmark\) Residual risks acknowledged
+\end{itemize}
+
+\textbf{J. Approval Determination}
+
+\begin{itemize}
+  \item \(\checkmark\) Approve for deployment
+  \item \(\square\) Approve with conditions
+  \item \(\square\) Defer
+  \item \(\square\) Reject
+\end{itemize}
+
+\subsubsection{Why this model passes (this is the lesson)}
+
+\textbf{1. The claim matches the evidence}
+
+The model does not claim:
+
+\begin{itemize}
+  \item higher alpha
+  \item better forecasting
+  \item regime dominance
+\end{itemize}
+
+It claims:
+
+\begin{quote}
+``Under this mandate, smoother rankings reduce implementation loss.''
+\end{quote}
+
+And the evidence supports exactly that.
+
+\textbf{2. The environment is respected}
+
+\begin{itemize}
+  \item Same universe
+  \item Same rebalance
+  \item Same costs
+  \item Same capacity
+\end{itemize}
+
+Only \emph{signal expression} changes.
+
+That is governance gold.
+
+\textbf{3. Fragility is bounded, not hidden}
+
+Risk knows:
+
+\begin{itemize}
+  \item where it works
+  \item where it fails
+  \item how to turn it off
+\end{itemize}
+
+This makes approval safe.
+
+\textbf{4. This is how real value is added}
+
+Not by:
+
+\begin{itemize}
+  \item clever models
+  \item heroic Sharpe ratios
+  \item flashy diagnostics
+\end{itemize}
+
+But by:
+
+\begin{quote}
+\textbf{making existing information survive implementation.}
+\end{quote}
+
+\subsubsection{Final takeaway}
+
+A passing model under this framework:
+
+\begin{itemize}
+  \item looks modest,
+  \item solves a specific problem,
+  \item respects constraints,
+  \item and improves outcomes net of reality.
+\end{itemize}
+
+That is exactly the kind of model that survives both markets \textbf{and} governance.

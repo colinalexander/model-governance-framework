@@ -1,0 +1,181 @@
+\section{Appendix A: Model Context Summary (Mandatory)}
+
+\textbf{This document is required for all models referenced in investment decisions, approval materials, or capital allocation discussions.} Models without a completed and approved Model Context Summary may not be used.
+
+\subsection{Model Identification}
+
+\begin{itemize}
+  \item \textbf{Model ID:}
+  \item \textbf{Model Name:}
+  \item \textbf{Model Classification:} \(\square\) Diagnostic \(\square\) Translational \(\square\) Deployable
+  \item \textbf{Lifecycle Status:} \(\square\) Research \(\square\) Approved \(\square\) Restricted \(\square\) Retired
+  \item \textbf{Model Owner:}
+  \item \textbf{Governance Reviewer:}
+  \item \textbf{Associated Portfolio / Desk:}
+\end{itemize}
+
+\subsection{Intended Use}
+
+\textbf{Primary Decision Supported}\\
+(Describe the specific decision this model informs.)
+
+\begin{quote}
+Example: portfolio ranking for monthly rebalance within an equity factor sleeve.
+\end{quote}
+
+\textbf{Explicitly Excluded Uses}\\
+(List decisions this model must not support.)
+
+\begin{quote}
+Example: intraday execution timing; discretionary override justification.
+\end{quote}
+
+\subsection{Declared Operating Context}
+
+This section defines the conditions under which model outputs are considered valid.
+
+\textbf{Asset Universe}
+
+\begin{itemize}
+  \item Instruments / markets covered:
+  \item Inclusion / exclusion criteria:
+\end{itemize}
+
+\textbf{Data Inputs}
+
+\begin{itemize}
+  \item Data sources:
+  \item Frequency and aggregation:
+  \item Key preprocessing steps:
+\end{itemize}
+
+\textbf{Decision Horizon}
+
+\begin{itemize}
+  \item Signal horizon:
+  \item Trading / rebalancing horizon:
+\end{itemize}
+
+\textbf{Portfolio Construction \& Execution}
+
+\begin{itemize}
+  \item Position sizing rules:
+  \item Rebalancing frequency:
+  \item Execution assumptions:
+\end{itemize}
+
+\textbf{Transaction Costs \& Market Impact}
+
+\begin{itemize}
+  \item Cost model used:
+  \item Slippage / impact assumptions:
+\end{itemize}
+
+\textbf{Risk Constraints}
+
+\begin{itemize}
+  \item Exposure limits:
+  \item Risk metrics enforced:
+\end{itemize}
+
+\textbf{Capacity \& Scale}
+
+\begin{itemize}
+  \item Capital levels evaluated:
+  \item Known or expected capacity limits:
+\end{itemize}
+
+\subsection{Evaluation and Evidence Summary}
+
+\textbf{Evaluation Design}\\
+(Summarize how the model was evaluated in a manner consistent with the Operating Context.)
+
+\textbf{Key Metrics Reviewed}\\
+(List metrics actually used to support approval.)
+
+\begin{quote}
+Example: net returns after costs, turnover, drawdown, stability measures.
+\end{quote}
+
+\textbf{Trade-Offs Observed}\\
+(Describe the principal trade-offs identified.)
+
+\begin{quote}
+Example: improved ranking sharpness coincides with higher turnover.
+\end{quote}
+
+\subsection{Assumptions and Fragilities}
+
+\textbf{Key Assumptions}\\
+(List assumptions that materially affect conclusions.)
+
+\begin{quote}
+Example: transaction costs \(\leq\) 10 bps one-way; monthly rebalance discipline.
+\end{quote}
+
+\textbf{Known Fragilities}\\
+(Describe where behavior degrades or becomes unstable.)
+
+\begin{quote}
+Example: performance deteriorates rapidly at higher turnover or shorter horizons.
+\end{quote}
+
+\subsection{Monitoring Expectations}
+
+\textbf{Primary Monitoring Metrics}\\
+(List metrics used to assess ongoing behavior.)
+
+\textbf{Expected Ranges / Thresholds}\\
+(Provide validated ranges.)
+
+\textbf{Escalation Triggers}\\
+(Define conditions requiring review or restriction.)
+
+\subsection{Capital Allocation Controls (Deployable Models Only)}
+
+\begin{itemize}
+  \item \textbf{Initial Capital Limit:}
+  \item \textbf{Scaling Conditions:}
+  \item \textbf{Reduction / Suspension Triggers:}
+\end{itemize}
+
+\subsection{Change and Re-Approval Triggers}
+
+Changes to any of the following require review and potential re-approval:
+
+\begin{itemize}
+  \item \(\square\) Asset universe
+  \item \(\square\) Data inputs
+  \item \(\square\) Horizon or rebalance frequency
+  \item \(\square\) Portfolio construction rules
+  \item \(\square\) Cost or liquidity assumptions
+  \item \(\square\) Risk constraints
+  \item \(\square\) Intended use
+\end{itemize}
+
+\subsection{Approvals}
+
+\textbf{Model Owner Certification}\\
+I certify that this summary accurately reflects the model and its evaluated context.
+
+\begin{itemize}
+  \item Name / Signature / Date:
+\end{itemize}
+
+\textbf{Governance Review}
+
+\begin{itemize}
+  \item Reviewer Name / Signature / Date:
+\end{itemize}
+
+\textbf{Deployment Approval (if applicable)}
+
+\begin{itemize}
+  \item Authority / Signature / Date:
+\end{itemize}
+
+\subsection{Governing Statement}
+
+\begin{quote}
+\textbf{This model may be used only within the context described above. Use outside this context constitutes a governance violation.}
+\end{quote}

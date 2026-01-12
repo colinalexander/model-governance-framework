@@ -1,0 +1,182 @@
+\section{Deployment Approval and Capital Allocation Controls}
+
+\subsection{Principle of Controlled Deployment}
+
+No quantitative model may influence live trading decisions or capital allocation unless it has been formally approved for deployment under this framework.
+
+Deployment approval is \textbf{context-specific}. Approval to deploy a model under one Operating Context does not authorize its use under materially different conditions.
+
+The burden of proof for deployment rests with the model owner.
+
+\subsection{Preconditions for Deployment Approval}
+
+A model may be considered for deployment only if all of the following conditions are met:
+
+\subsubsection{Classification Eligibility}
+
+\begin{itemize}
+  \item The model is classified as a \textbf{Deployable Model} in the Model Registry.
+  \item Any prior use as a diagnostic or translational model has been explicitly closed or re-scoped.
+\end{itemize}
+
+\subsubsection{Completed Validation}
+
+\begin{itemize}
+  \item Validation has been conducted in accordance with Section 4.
+  \item Evaluation reflects the declared Operating Context.
+  \item Trade-offs, sensitivities, and limitations are documented.
+\end{itemize}
+
+\subsubsection{Documented Operating Context}
+
+\begin{itemize}
+  \item The Operating Context is complete, current, and approved.
+  \item Scope boundaries and exclusions are explicit.
+  \item Known failure modes are documented.
+\end{itemize}
+
+\subsubsection{Independent Review}
+
+\begin{itemize}
+  \item Risk management or an independent governance function has reviewed the model.
+  \item Material review findings have been resolved or formally accepted.
+\end{itemize}
+
+\subsection{Deployment Approval Materials}
+
+Deployment requests must include, at a minimum:
+
+\begin{itemize}
+  \item a summary of intended use and decision impact;
+  \item the declared Operating Context;
+  \item validation results and trade-off analysis;
+  \item identified risks, fragilities, and failure modes;
+  \item proposed capital limits and scaling plan;
+  \item monitoring metrics and escalation triggers.
+\end{itemize}
+
+Approval materials must distinguish clearly between:
+
+\begin{itemize}
+  \item evidence generated under approved assumptions; and
+  \item exploratory or out-of-context analyses.
+\end{itemize}
+
+\subsection{Approval Authority}
+
+Deployment approval authority depends on the model's impact and capital at risk:
+
+\begin{itemize}
+  \item \textbf{Low-impact deployable models}: delegated authority (as defined by firm policy).
+  \item \textbf{Material-impact deployable models}: Investment Committee approval.
+  \item \textbf{Firm-wide or systemic models}: senior management or board-level oversight.
+\end{itemize}
+
+Approval authority must be documented in the Model Registry.
+
+\subsection{Capital Allocation Controls}
+
+\subsubsection{Initial Capital Limits}
+
+All deployed models must begin with conservative capital limits.
+
+Initial limits must reflect:
+
+\begin{itemize}
+  \item uncertainty in model behavior;
+  \item sensitivity to assumptions;
+  \item liquidity and operational considerations.
+\end{itemize}
+
+Capital limits may not be increased automatically based on short-term performance.
+
+\subsubsection{Scaling Conditions}
+
+Any increase in capital allocation must be conditioned on:
+
+\begin{itemize}
+  \item sustained behavior within expected ranges;
+  \item stability of key monitoring metrics;
+  \item absence of Operating Context violations.
+\end{itemize}
+
+Scaling decisions require review and approval proportional to the increase in exposure.
+
+\subsubsection{Prohibited Allocation Practices}
+
+The following practices are prohibited:
+
+\begin{itemize}
+  \item allocating capital based solely on backtested performance;
+  \item extrapolating performance beyond evaluated scale;
+  \item inferring robustness from short-lived success.
+\end{itemize}
+
+\subsection{Deployment Constraints and Controls}
+
+Deployed models must operate within predefined constraints, including:
+
+\begin{itemize}
+  \item maximum turnover and trading intensity;
+  \item exposure and concentration limits;
+  \item drawdown or loss thresholds;
+  \item operational and execution constraints.
+\end{itemize}
+
+Constraints must be enforceable via systems controls where feasible.
+
+\subsection{Conditional and Limited Deployment}
+
+Where appropriate, models may be approved for \textbf{conditional deployment}, including:
+
+\begin{itemize}
+  \item paper trading with live monitoring;
+  \item shadow capital allocations;
+  \item partial or capped integration into existing strategies.
+\end{itemize}
+
+Conditional deployment must include:
+
+\begin{itemize}
+  \item explicit success and failure criteria; and
+  \item a defined review timeline.
+\end{itemize}
+
+\subsection{Suspension and De-Escalation Authority}
+
+Risk management and designated governance functions have the authority to:
+
+\begin{itemize}
+  \item reduce capital allocation;
+  \item restrict model usage; or
+  \item suspend deployment
+\end{itemize}
+
+in response to:
+
+\begin{itemize}
+  \item Operating Context violations;
+  \item monitoring breaches;
+  \item unexplained behavioral changes; or
+  \item external events invalidating assumptions.
+\end{itemize}
+
+Suspension actions must be documented and reviewed.
+
+\subsection{Post-Approval Obligations}
+
+Approval for deployment carries ongoing obligations:
+
+\begin{itemize}
+  \item compliance with monitoring requirements (Section 7);
+  \item prompt disclosure of assumption breaches;
+  \item timely initiation of reviews when conditions change.
+\end{itemize}
+
+Failure to meet post-approval obligations may result in withdrawal of approval.
+
+\subsection{Governing Standard}
+
+\begin{quote}
+\textbf{Deployment approval reflects confidence in how a model behaves under defined conditions, not belief in its ability to perform under all conditions.}
+\end{quote}

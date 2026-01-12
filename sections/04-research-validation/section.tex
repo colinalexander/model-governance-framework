@@ -1,0 +1,183 @@
+\section{Research and Validation Standards}
+
+\subsection{Alignment of Evaluation with Intended Use}
+
+Model evaluation must be aligned with the model's classification and declared Operating Context.
+
+Evaluation designs, metrics, and conclusions must correspond directly to the decisions the model is intended to support. Evidence generated under one use case may not be used to justify a different use case without re-evaluation.
+
+Specifically:
+
+\begin{itemize}
+  \item \textbf{Diagnostic models} are evaluated for informational content and structural relevance.
+  \item \textbf{Translational models} are evaluated for implementability under explicit constraints.
+  \item \textbf{Deployable models} are evaluated for stability, risk, and net outcomes under realistic operating conditions.
+\end{itemize}
+
+Misalignment between evaluation design and intended use constitutes a governance failure.
+
+\subsection{Permissible Evaluation Metrics by Model Classification}
+
+\subsubsection{Diagnostic Models}
+
+Permissible metrics include:
+
+\begin{itemize}
+  \item correlation or ranking measures;
+  \item classification or prediction diagnostics;
+  \item explanatory or attribution statistics.
+\end{itemize}
+
+Diagnostic metrics are interpreted as evidence of \emph{information presence}, not of tradable value.
+
+Diagnostic results must not be presented as performance evidence.
+
+\subsubsection{Translational Models}
+
+Permissible metrics include:
+
+\begin{itemize}
+  \item turnover and trading intensity;
+  \item transaction-cost sensitivity;
+  \item stability of signals or rankings;
+  \item feasibility under portfolio and risk constraints.
+\end{itemize}
+
+Translational metrics are interpreted as evidence of \emph{implementability}, not of allocative performance.
+
+\subsubsection{Deployable Models}
+
+Permissible metrics include:
+
+\begin{itemize}
+  \item net returns after costs;
+  \item drawdowns and tail behavior;
+  \item exposure stability and risk utilization;
+  \item performance under stress and adverse conditions.
+\end{itemize}
+
+Deployable metrics must reflect the declared Operating Context and realistic assumptions.
+
+\subsection{Evaluation Design Requirements}
+
+\subsubsection{Temporal Integrity}
+
+Evaluation must respect time ordering consistent with the Operating Context.
+
+\begin{itemize}
+  \item Training, validation, and testing must be separated appropriately.
+  \item Lookahead bias and information leakage must be explicitly addressed.
+  \item Evaluation windows must reflect deployment cadence.
+\end{itemize}
+
+\subsubsection{Constraint Consistency}
+
+All evaluation must apply the same constraints assumed in deployment, including:
+
+\begin{itemize}
+  \item portfolio construction rules;
+  \item rebalancing frequency;
+  \item transaction costs and liquidity limits;
+  \item risk constraints.
+\end{itemize}
+
+Relaxing constraints for evaluation purposes must be explicitly labeled and may not support deployable claims.
+
+\subsubsection{Fixed Environment Discipline}
+
+For deployable and translational models, core elements of the evaluation environment---data definitions, features, portfolio rules, and cost assumptions---must be held fixed across comparisons unless a context change is declared.
+
+Performance differences must be attributable to explicitly identified design choices.
+
+\subsection{Trade-Off Presentation and Frontier Analysis}
+
+Model results must be presented as trade-offs among economically relevant dimensions.
+
+At a minimum, validation materials must illustrate:
+
+\begin{itemize}
+  \item performance versus turnover or cost;
+  \item responsiveness versus stability;
+  \item scale versus market impact.
+\end{itemize}
+
+Single-metric optimization or ``best model'' selection is insufficient for approval.
+
+Where applicable, results should be presented as feasible regions or frontiers rather than point estimates.
+
+\subsection{Robustness and Sensitivity Analysis}
+
+Validation must assess sensitivity to:
+
+\begin{itemize}
+  \item reasonable variations in key assumptions;
+  \item changes in transaction costs, liquidity, or scale;
+  \item alternative but plausible operating conditions.
+\end{itemize}
+
+Robustness analysis is intended to identify:
+
+\begin{itemize}
+  \item regions of stability;
+  \item points of fragility; and
+  \item assumptions that materially affect outcomes.
+\end{itemize}
+
+Fragility must be documented and treated as a model risk characteristic.
+
+\subsection{Interpretation and Claim Discipline}
+
+Validation materials must adhere to the following standards:
+
+\begin{itemize}
+  \item Claims must be explicitly tied to evaluated conditions.
+  \item Absence of evidence is not evidence of robustness.
+  \item Performance improvements must be contextualized within observed trade-offs.
+\end{itemize}
+
+Language implying generality, optimality, or dominance is prohibited unless supported across declared operating conditions.
+
+\subsection{Independent Review and Challenge}
+
+Deployable and translational models are subject to independent review by risk management or a designated governance function.
+
+Independent review includes:
+
+\begin{itemize}
+  \item assessment of evaluation design integrity;
+  \item challenge of assumptions and scope boundaries;
+  \item verification of alignment with the declared Operating Context.
+\end{itemize}
+
+Unresolved review findings must be addressed prior to approval.
+
+\subsection{Documentation Requirements}
+
+Validation documentation must include:
+
+\begin{itemize}
+  \item a description of evaluation design;
+  \item metrics used and rationale for their selection;
+  \item explicit mapping from evidence to claims;
+  \item identified limitations and failure modes.
+\end{itemize}
+
+Documentation must be sufficient to allow an informed third party to understand:
+
+\begin{itemize}
+  \item what was tested;
+  \item under what conditions; and
+  \item what conclusions are justified.
+\end{itemize}
+
+\subsection{Consequences of Non-Compliance}
+
+Failure to adhere to research and validation standards may result in:
+
+\begin{itemize}
+  \item rejection of approval requests;
+  \item restriction or suspension of model use; or
+  \item mandatory re-evaluation.
+\end{itemize}
+
+Repeated or material violations may be escalated to senior management or the Investment Committee.

@@ -1,0 +1,333 @@
+\section{Appendix C: Worked Example}
+
+\subsection{ML Cross-Sectional Equity Signal}
+
+\subsubsection{High-level description}
+
+A researcher proposes a machine-learning model that predicts \textbf{next-month relative returns} across U.S. equities using factor and price-derived features.
+
+Backtests show:
+
+\begin{itemize}
+  \item higher IC than baseline factor models
+  \item strong gross Sharpe in paper portfolios
+  \item weaker net performance after costs
+\end{itemize}
+
+\subsubsection{Step 1: Appendix A -- Model Context Summary}
+
+\textbf{A. Model Identification}
+
+\begin{itemize}
+  \item \textbf{Model ID:} EQ-ML-017
+  \item \textbf{Model Name:} Nonlinear Cross-Sectional Ranker
+  \item \textbf{Model Classification:} \(\checkmark\) Translational (requested upgrade to Deployable)
+  \item \textbf{Lifecycle Status:} Research
+  \item \textbf{Model Owner:} Head of Equity Research
+  \item \textbf{Governance Reviewer:} Equity Risk Lead
+  \item \textbf{Associated Portfolio:} U.S. Equity Factor Sleeve
+\end{itemize}
+
+\textbf{B. Intended Use}
+
+\textbf{Primary Decision Supported}
+
+\begin{quote}
+Rank stocks monthly to construct a dollar-neutral long--short equity factor portfolio.
+\end{quote}
+
+\textbf{Explicitly Excluded Uses}
+
+\begin{quote}
+Intraday trading, execution timing, discretionary stock selection.
+\end{quote}
+
+\textbf{Good:} intended use is narrow and concrete.
+
+\textbf{C. Declared Operating Context}
+
+\textbf{Asset Universe}
+
+\begin{itemize}
+  \item Top 1,000 U.S. equities by market cap
+  \item Monthly reconstitution
+\end{itemize}
+
+\textbf{Data Inputs}
+
+\begin{itemize}
+  \item Daily returns
+  \item Standard factor exposures
+  \item 12-month rolling features
+\end{itemize}
+
+\textbf{Decision Horizon}
+
+\begin{itemize}
+  \item Signal horizon: 1 month
+  \item Rebalancing: monthly
+\end{itemize}
+
+\textbf{Portfolio Construction}
+
+\begin{itemize}
+  \item Top/bottom decile, equal weight
+  \item Gross exposure = 2x NAV
+\end{itemize}
+
+\textbf{Transaction Costs}
+
+\begin{itemize}
+  \item Assumed: 10 bps one-way
+\end{itemize}
+
+\textbf{Risk Constraints}
+
+\begin{itemize}
+  \item Sector neutral
+  \item Beta neutral
+\end{itemize}
+
+\textbf{Capacity}
+
+\begin{itemize}
+  \item Evaluated up to \$250MM gross
+\end{itemize}
+
+\textbf{Red flag:} turnover looks high relative to monthly cadence.
+
+\textbf{D. Evaluation and Evidence Summary}
+
+\textbf{Evaluation Design}
+
+\begin{itemize}
+  \item Walk-forward backtest
+  \item Monthly rebalance
+  \item IC and long--short returns reported
+\end{itemize}
+
+\textbf{Key Metrics}
+
+\begin{itemize}
+  \item IC: +0.035 (vs +0.025 baseline)
+  \item Gross Sharpe: 0.85
+  \item Net Sharpe (after costs): 0.20
+\end{itemize}
+
+\textbf{Trade-Offs Observed}
+
+\begin{quote}
+Higher IC coincides with materially higher turnover.
+\end{quote}
+
+\textbf{Good:} trade-offs disclosed, not hidden.
+
+\textbf{E. Assumptions and Fragilities}
+
+\textbf{Key Assumptions}
+
+\begin{itemize}
+  \item Transaction costs \(\leq\) 10 bps
+  \item Monthly liquidity sufficient for turnover
+\end{itemize}
+
+\textbf{Known Fragilities}
+
+\begin{quote}
+Net performance deteriorates rapidly if costs exceed 15 bps or if rebalance frequency increases.
+\end{quote}
+
+\textbf{Warning:} this will matter later.
+
+\textbf{F. Monitoring Expectations}
+
+\textbf{Primary Metrics}
+
+\begin{itemize}
+  \item Monthly turnover
+  \item Cost drag
+  \item Rank stability
+\end{itemize}
+
+\textbf{Expected Ranges}
+
+\begin{itemize}
+  \item Turnover: 80--120\% annually
+\end{itemize}
+
+\textbf{G. Capital Allocation Controls (Draft)}
+
+\begin{itemize}
+  \item Initial capital: \$25MM gross
+  \item Scale-up conditional on stable turnover
+\end{itemize}
+
+\textbf{H. Change Triggers}
+
+\begin{itemize}
+  \item \(\checkmark\) Horizon
+  \item \(\checkmark\) Costs
+  \item \(\checkmark\) Portfolio rules
+\end{itemize}
+
+\textbf{I. Approvals}
+
+\begin{itemize}
+  \item Model Owner: \(\checkmark\)
+  \item Governance Reviewer: Pending
+\end{itemize}
+
+\subsubsection{Verdict after Appendix A}
+
+\begin{itemize}
+  \item \textbf{OK:} context is clear
+  \item \textbf{Warning:} fragility is explicit
+  \item \textbf{Result:} eligible to proceed to deployment review
+\end{itemize}
+
+\subsubsection{Step 2: Appendix B -- Deployment Approval Checklist}
+
+Now the model faces the real test.
+
+\textbf{B. Context and Scope Verification}
+
+\begin{itemize}
+  \item \(\checkmark\) Model Context Summary attached
+  \item \(\checkmark\) Intended use explicit
+  \item \(\checkmark\) Scope exclusions stated
+  \item \(\checkmark\) No undeclared assumptions
+\end{itemize}
+
+\textbf{Pass}
+
+\textbf{C. Evaluation and Evidence Alignment}
+
+\begin{itemize}
+  \item \(\checkmark\) Evaluation matches monthly rebalance
+  \item \(\checkmark\) Costs applied
+  \item \(\checkmark\) Trade-offs shown
+  \item \(\square\) Evidence net of conservative costs
+\end{itemize}
+
+\textbf{Fail}
+
+\textbf{Why:} Risk team reruns net performance at 15--20 bps, consistent with live trading history. Net Sharpe drops to around zero or negative.
+
+\textbf{D. Robustness and Fragility Assessment}
+
+\begin{itemize}
+  \item \(\checkmark\) Fragility documented
+  \item \(\square\) Non-knife-edge behavior demonstrated
+\end{itemize}
+
+\textbf{Fail}
+
+\textbf{Why:} Small cost changes erase deployable performance. This is not robustness; it is a narrow operating window.
+
+\textbf{E. Implementation Feasibility}
+
+\begin{itemize}
+  \item \(\square\) Turnover within feasible bounds at scale
+  \item \(\square\) Liquidity assumptions stress-tested
+\end{itemize}
+
+\textbf{Fail}
+
+\textbf{Why:} Turnover implies repeated trading in marginal names. Capacity estimates assume static liquidity, not impact-aware execution.
+
+\textbf{F. Monitoring and Risk Controls}
+
+\begin{itemize}
+  \item \(\checkmark\) Metrics defined
+  \item \(\checkmark\) Thresholds specified
+\end{itemize}
+
+\textbf{Conditional}
+
+Monitoring is adequate, but it would mostly detect failure after capital is at risk.
+
+\textbf{G. Capital Allocation Controls}
+
+\begin{itemize}
+  \item \(\square\) Capital limits conservative given fragility
+\end{itemize}
+
+\textbf{Fail}
+
+Even \$25MM gross is non-trivial given cost sensitivity.
+
+\textbf{H. Independent Review}
+
+\begin{itemize}
+  \item \(\checkmark\) Independent review completed
+  \item \(\checkmark\) Residual risks acknowledged
+\end{itemize}
+
+\textbf{J. Approval Determination}
+
+\begin{itemize}
+  \item \(\square\) Approve
+  \item \(\square\) Approve with conditions
+  \item \(\checkmark\) Defer pending remediation
+  \item \(\square\) Reject
+\end{itemize}
+
+\subsubsection{Final Outcome (This Is the Key)}
+
+\textbf{What governance does not do}
+
+\begin{itemize}
+  \item It does not say the model is ``bad''
+  \item It does not suppress research
+  \item It does not deny informational value
+\end{itemize}
+
+\textbf{What governance does do}
+
+\begin{itemize}
+  \item Prevents capital deployment based on diagnostic strength
+  \item Forces acknowledgment that:
+\end{itemize}
+
+\begin{quote}
+``Higher IC does not survive discretization + costs under this mandate.''
+\end{quote}
+
+\textbf{Resulting actions}
+
+\begin{itemize}
+  \item Model remains \textbf{Translational}
+  \item Research redirected to:
+  \begin{itemize}
+    \item stability-aware objectives
+    \item lower-turnover variants
+    \item alternative rebalance horizons
+  \end{itemize}
+\end{itemize}
+
+No money lost. No reputational damage. No hero narratives required.
+
+\subsubsection{Why this example matters}
+
+This is exactly how most quant blowups begin:
+
+\begin{itemize}
+  \item a real signal
+  \item modest improvement
+  \item fragile economics
+  \item pressure to deploy
+\end{itemize}
+
+The framework does not ask:
+
+\begin{quote}
+``Is this smart?''
+\end{quote}
+
+It asks:
+
+\begin{quote}
+\textbf{``Is this justified for this decision under these conditions?''}
+\end{quote}
+
+And in this case, the correct answer is \textbf{not yet}.

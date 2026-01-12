@@ -1,0 +1,173 @@
+\section{Ongoing Monitoring and Risk Controls}
+
+\subsection{Purpose of Ongoing Monitoring}
+
+Ongoing monitoring is required to ensure that deployed models continue to behave in a manner consistent with their declared Operating Context and validated expectations.
+
+Monitoring is not intended to evaluate whether a model is ``working,'' but to detect:
+
+\begin{itemize}
+  \item deviations from expected behavior;
+  \item violations of underlying assumptions; and
+  \item emerging risks that may not be visible through performance alone.
+\end{itemize}
+
+Monitoring obligations apply to all deployable models for the duration of their use.
+
+\subsection{Monitoring Focus}
+
+Monitoring must emphasize \textbf{model behavior and context adherence}, not solely realized P\&L.
+
+At a minimum, the following dimensions must be monitored, where applicable.
+
+\subsubsection{Implementation Behavior}
+
+\begin{itemize}
+  \item turnover and trading intensity relative to expected ranges;
+  \item transaction costs and slippage relative to assumptions;
+  \item execution quality and operational performance.
+\end{itemize}
+
+\subsubsection{Signal and Decision Stability}
+
+\begin{itemize}
+  \item stability of model outputs or rankings;
+  \item frequency and magnitude of decision changes;
+  \item divergence from historical behavior patterns.
+\end{itemize}
+
+\subsubsection{Risk and Exposure Profile}
+
+\begin{itemize}
+  \item factor, sector, and asset-level exposures;
+  \item concentration metrics;
+  \item utilization of risk limits.
+\end{itemize}
+
+\subsubsection{Sensitivity to Operating Conditions}
+
+\begin{itemize}
+  \item sensitivity to costs, liquidity, or volatility changes;
+  \item degradation under stressed or adverse conditions;
+  \item scale effects as capital changes.
+\end{itemize}
+
+\subsection{Monitoring Metrics and Thresholds}
+
+For each deployable model, a set of \textbf{monitoring metrics and thresholds} must be defined at deployment.
+
+Thresholds should reflect:
+
+\begin{itemize}
+  \item validated operating ranges;
+  \item known fragilities; and
+  \item risk tolerance appropriate to the model's impact.
+\end{itemize}
+
+Thresholds must be:
+
+\begin{itemize}
+  \item documented;
+  \item reviewable; and
+  \item enforceable through systems controls where feasible.
+\end{itemize}
+
+\subsection{Detection of Operating Context Violations}
+
+Monitoring must explicitly identify \textbf{Operating Context violations}, including but not limited to:
+
+\begin{itemize}
+  \item trading behavior inconsistent with declared assumptions;
+  \item turnover or cost levels materially exceeding evaluated ranges;
+  \item exposure patterns outside approved limits;
+  \item use of the model for decisions beyond its intended scope.
+\end{itemize}
+
+Detection of an Operating Context violation requires immediate review.
+
+\subsection{Response to Monitoring Breaches}
+
+\subsubsection{Initial Response}
+
+Upon breach of a monitoring threshold:
+
+\begin{itemize}
+  \item the model owner must be notified promptly;
+  \item risk management must assess severity and persistence; and
+  \item interim controls (e.g., capital reduction) may be applied.
+\end{itemize}
+
+\subsubsection{Escalation}
+
+If breaches are material, persistent, or unexplained:
+
+\begin{itemize}
+  \item the model may be placed in \textbf{Restricted} status;
+  \item capital allocation may be reduced or suspended; and
+  \item a formal review must be initiated.
+\end{itemize}
+
+\subsubsection{Documentation}
+
+All breaches, responses, and outcomes must be documented in the Model Registry.
+
+\subsection{Performance Monitoring and Interpretation}
+
+Realized performance is monitored as one input into governance, but is not sufficient on its own to determine model validity.
+
+Performance deviations must be interpreted in conjunction with:
+
+\begin{itemize}
+  \item changes in behavior metrics;
+  \item assumption validity; and
+  \item market or structural conditions.
+\end{itemize}
+
+Unexpected performance, positive or negative, triggers review when inconsistent with validated expectations.
+
+\subsection{Periodic Review Requirements}
+
+All deployable models must undergo periodic review at intervals no less frequent than quarterly.
+
+Periodic reviews assess:
+
+\begin{itemize}
+  \item continued alignment with the declared Operating Context;
+  \item relevance of assumptions and constraints;
+  \item adequacy of monitoring metrics and thresholds; and
+  \item appropriateness of current capital allocation.
+\end{itemize}
+
+Reviews must be documented and retained.
+
+\subsection{Authority to Restrict or Suspend Models}
+
+Risk management and designated governance functions are authorized to:
+
+\begin{itemize}
+  \item restrict model usage;
+  \item reduce capital exposure; or
+  \item suspend deployment
+\end{itemize}
+
+when monitoring indicates elevated risk, regardless of recent performance.
+
+Such actions are preventative and do not require evidence of loss.
+
+\subsection{Learning and Feedback}
+
+Monitoring results should inform:
+
+\begin{itemize}
+  \item future validation standards;
+  \item updates to Operating Context declarations; and
+  \item improvements in governance controls.
+\end{itemize}
+
+Failures and near-misses are treated as learning inputs and are reviewed without attribution of fault.
+
+\subsection{Governing Principle}
+
+\begin{quote}
+\textbf{A model remains approved only so long as its behavior remains consistent with the conditions under which it was approved.}
+\end{quote}

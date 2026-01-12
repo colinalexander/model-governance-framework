@@ -1,0 +1,153 @@
+\section{Declared Operating Context}
+
+\subsection{Requirement for a Declared Operating Context}
+
+Every model subject to this framework must include a formally declared \textbf{Operating Context}.
+
+The Operating Context defines the specific conditions under which the model has been evaluated and approved for use. Model outputs are considered valid \textbf{only} within this declared context.
+
+Models may not be used, referenced, or interpreted outside their declared Operating Context without formal re-evaluation and approval.
+
+\subsection{Components of the Operating Context}
+
+The Operating Context must be documented in a structured, reviewable format and must include, at a minimum, the following elements.
+
+\subsubsection{Asset Universe}
+
+\begin{itemize}
+  \item Instruments, asset classes, or markets covered
+  \item Inclusion and exclusion criteria
+  \item Treatment of corporate actions, listings, and delistings
+\end{itemize}
+
+\subsubsection{Data Inputs}
+
+\begin{itemize}
+  \item Data sources and vendors
+  \item Data frequency and aggregation
+  \item Lookback windows and lags
+  \item Preprocessing, filtering, and normalization procedures
+\end{itemize}
+
+\subsubsection{Decision Horizon}
+
+\begin{itemize}
+  \item Prediction or decision horizon
+  \item Relationship between signal horizon and trading horizon
+  \item Alignment with portfolio or execution timing
+\end{itemize}
+
+\subsubsection{Portfolio Construction and Execution}
+
+\begin{itemize}
+  \item Position sizing methodology
+  \item Portfolio constraints (e.g., leverage, gross and net exposure)
+  \item Rebalancing frequency and rules
+  \item Execution assumptions (e.g., order types, participation rates)
+\end{itemize}
+
+\subsubsection{Transaction Costs and Market Impact}
+
+\begin{itemize}
+  \item Cost model used in evaluation
+  \item Assumptions regarding spreads, fees, and slippage
+  \item Treatment of market impact and liquidity limits
+\end{itemize}
+
+\subsubsection{Risk Constraints}
+
+\begin{itemize}
+  \item Exposure limits (factor, sector, asset-level)
+  \item Risk metrics used (e.g., volatility, drawdown)
+  \item Integration with firm risk policies
+\end{itemize}
+
+\subsubsection{Capacity and Scale Assumptions}
+
+\begin{itemize}
+  \item Capital levels evaluated
+  \item Scaling behavior assumptions
+  \item Known capacity limits or degradation effects
+\end{itemize}
+
+\subsubsection{Intended Decision Supported}
+
+\begin{itemize}
+  \item Specific decisions the model is intended to inform
+  \item Decisions the model is explicitly \textbf{not} designed to support
+\end{itemize}
+
+\subsection{Scope Boundaries and Exclusions}
+
+Each Operating Context must explicitly state:
+
+\begin{itemize}
+  \item conditions under which model performance is expected to degrade;
+  \item assumptions that, if violated, invalidate conclusions; and
+  \item market environments or regimes for which the model has not been evaluated.
+\end{itemize}
+
+Implicit assumptions are not permitted. Undeclared assumptions are treated as \textbf{unapproved scope expansion}.
+
+\subsection{Context Consistency and Evidence Alignment}
+
+All validation, performance evaluation, and monitoring metrics must be consistent with the declared Operating Context.
+
+Evidence generated under different assumptions---such as alternative cost models, rebalancing frequencies, or horizons---must be clearly labeled as \textbf{out-of-context} and may not be used to justify in-context deployment.
+
+Where multiple contexts are evaluated, results must be presented separately and not aggregated without explicit justification.
+
+\subsection{Context Changes and Re-Approval}
+
+\subsubsection{Definition of a Context Change}
+
+Any change to the components listed in Section 3.2 constitutes a change in Operating Context.
+
+Examples include, but are not limited to:
+
+\begin{itemize}
+  \item expanding or altering the asset universe;
+  \item changing data sources or frequency;
+  \item modifying portfolio construction rules;
+  \item updating transaction cost or liquidity assumptions;
+  \item altering rebalancing cadence or decision horizon.
+\end{itemize}
+
+\subsubsection{Governance Requirements for Context Changes}
+
+\begin{itemize}
+  \item Context changes affecting diagnostic use require documentation update.
+  \item Context changes affecting translational or deployable use require re-validation and approval prior to use.
+\end{itemize}
+
+Context changes may not be implemented retroactively.
+
+\subsection{Context Hierarchy and Conservative Interpretation}
+
+When uncertainty exists regarding applicable context, the model shall be governed under the \textbf{most restrictive interpretation}.
+
+Evidence generated under relaxed assumptions does not supersede evidence generated under stricter assumptions unless explicitly approved.
+
+\subsection{Enforcement and Violations}
+
+Use of a model outside its declared Operating Context constitutes a governance violation.
+
+Violations may result in:
+
+\begin{itemize}
+  \item immediate restriction or suspension of model use;
+  \item reduction of capital exposure;
+  \item mandatory review by risk management; and
+  \item escalation to senior management or the Investment Committee, as appropriate.
+\end{itemize}
+
+\subsection{Operating Context Documentation}
+
+The declared Operating Context must be:
+
+\begin{itemize}
+  \item stored alongside the model in the Model Registry;
+  \item versioned and auditable;
+  \item referenced in all approval and review materials; and
+  \item reviewed whenever material market, operational, or strategic changes occur.
+\end{itemize}

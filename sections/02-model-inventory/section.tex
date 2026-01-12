@@ -1,0 +1,206 @@
+\section{Model Inventory and Classification}
+
+\subsection{Model Registry}
+
+The firm shall maintain a centralized \textbf{Model Registry} that serves as the authoritative record of all quantitative models subject to this framework.
+
+Each model entered into the registry must be assigned:
+
+\begin{itemize}
+  \item a unique model identifier;
+  \item a model name and brief description;
+  \item a primary owner (research lead);
+  \item a secondary owner (risk or governance contact);
+  \item the portfolio, desk, or function the model supports;
+  \item current model status; and
+  \item the model's classification as defined in Section 2.3.
+\end{itemize}
+
+The Model Registry is the system of record for governance purposes. Models not listed in the registry may not be referenced in investment decisions or approval materials.
+
+\subsection{Model Lifecycle Status}
+
+Each model in the registry must have exactly one lifecycle status at any point in time.
+
+Permissible statuses are:
+
+\subsubsection{Research}
+
+\begin{itemize}
+  \item Model is under development or evaluation.
+  \item Not permitted to influence capital allocation or live trading.
+  \item May be used for exploratory analysis and internal discussion.
+\end{itemize}
+
+\subsubsection{Approved}
+
+\begin{itemize}
+  \item Model has satisfied applicable validation requirements.
+  \item Approved for use within its declared operating context.
+  \item Subject to monitoring and change controls.
+\end{itemize}
+
+\subsubsection{Restricted}
+
+\begin{itemize}
+  \item Model use is temporarily limited due to:
+  \begin{itemize}
+    \item assumption violations;
+    \item monitoring breaches;
+    \item unresolved review findings; or
+    \item pending re-validation.
+  \end{itemize}
+  \item Capital exposure may be reduced or suspended.
+\end{itemize}
+
+\subsubsection{Retired}
+
+\begin{itemize}
+  \item Model is no longer approved for use.
+  \item Retained in the registry for audit, learning, and historical reference.
+  \item Must not be reactivated without re-approval.
+\end{itemize}
+
+Lifecycle status changes must be logged with justification and approval authority.
+
+\subsection{Mandatory Model Classification}
+
+Each model must be classified into exactly one of the following categories. Classification is mandatory and determines validation requirements, permissible uses, and approval authority.
+
+\subsubsection{Diagnostic Models}
+
+\textbf{Purpose}\\
+Diagnostic models are used to explore data, test hypotheses, or assess the presence of informational structure.
+
+\textbf{Characteristics}
+
+\begin{itemize}
+  \item Generate signals, rankings, or statistics for analysis.
+  \item Evaluated using informational or statistical metrics.
+  \item May exhibit performance under unconstrained or simplified assumptions.
+\end{itemize}
+
+\textbf{Restrictions}
+
+\begin{itemize}
+  \item Must not be used to justify capital allocation.
+  \item Must not be cited as evidence of deployable performance.
+  \item Must not be connected directly to live trading systems.
+\end{itemize}
+
+\textbf{Governance Implication}\\
+Diagnostic models are subject to documentation requirements but are exempt from deployment approval and live monitoring standards.
+
+\subsubsection{Translational Models}
+
+\textbf{Purpose}\\
+Translational models are used to map research signals into implementable portfolios, trades, or execution instructions under explicit constraints.
+
+\textbf{Characteristics}
+
+\begin{itemize}
+  \item Incorporate portfolio construction rules, transaction costs, or risk limits.
+  \item Used to assess feasibility, turnover, cost sensitivity, and stability.
+  \item Bridge the gap between research outputs and deployable strategies.
+\end{itemize}
+
+\textbf{Restrictions}
+
+\begin{itemize}
+  \item Do not independently justify capital allocation.
+  \item Must not be presented as live trading recommendations.
+  \item May only be used to inform deployment decisions, not replace them.
+\end{itemize}
+
+\textbf{Governance Implication}\\
+Translational models require enhanced validation relative to diagnostic models and are reviewed jointly by research and risk management.
+
+\subsubsection{Deployable Models}
+
+\textbf{Purpose}\\
+Deployable models directly or indirectly influence live trading decisions, portfolio allocations, risk controls, or execution behavior.
+
+\textbf{Characteristics}
+
+\begin{itemize}
+  \item Integrated into live or pre-trade decision workflows.
+  \item Influence position sizing, trade timing, or capital allocation.
+  \item Subject to operational, market, and behavioral risks.
+\end{itemize}
+
+\textbf{Requirements}
+
+\begin{itemize}
+  \item Must undergo full validation and approval.
+  \item Must include defined monitoring metrics and thresholds.
+  \item Must have clearly documented failure modes and escalation procedures.
+\end{itemize}
+
+\textbf{Governance Implication}\\
+Deployable models are subject to the highest level of governance, including formal approval, ongoing monitoring, and periodic re-review.
+
+\subsection{Classification Integrity}
+
+\subsubsection{Prohibition on Implicit Promotion}
+
+A model may not be treated as belonging to a higher classification than the one assigned in the registry.
+
+In particular:
+
+\begin{itemize}
+  \item Diagnostic results may not be used to support deployable claims.
+  \item Translational analyses may not substitute for deployable validation.
+\end{itemize}
+
+Any change in classification constitutes a change in intended use and requires re-approval.
+
+\subsubsection{Mixed-Use Models}
+
+If a model supports multiple functions (e.g., research and trading), each use must be explicitly documented and approved.
+
+Absent such documentation, the model is governed under the \textbf{most restrictive applicable classification}.
+
+\subsection{Model Composition and Interaction Risk}
+
+Models are often used in combination, including stacked signals, ensembles, overrides, or conditional routing. Such combinations can create emergent behavior that is not captured by the validation of any individual component.
+
+Accordingly:
+
+\begin{itemize}
+  \item A material combination of approved models may constitute a \textbf{new model} and must be documented as such in the Model Registry.
+  \item The combined system must have a declared Operating Context, classification, and validation evidence appropriate to its use.
+  \item Interactions that change decision logic, risk exposure, or trading behavior require review and approval prior to use.
+\end{itemize}
+
+\subsection{Ownership and Accountability}
+
+Each model must have:
+
+\begin{itemize}
+  \item a \textbf{Model Owner}, responsible for:
+  \begin{itemize}
+    \item documentation accuracy;
+    \item disclosure of assumptions and limitations; and
+    \item initiating reviews when conditions change.
+  \end{itemize}
+  \item a \textbf{Governance Reviewer}, responsible for:
+  \begin{itemize}
+    \item independent challenge;
+    \item validation oversight; and
+    \item enforcement of scope and classification discipline.
+  \end{itemize}
+\end{itemize}
+
+Ownership must be current at all times. Unowned models may not remain active.
+
+\subsection{Relationship Between Classification and Evidence}
+
+The type of evidence required to support model use depends on classification:
+
+\begin{itemize}
+  \item Diagnostic models require evidence of informational relevance.
+  \item Translational models require evidence of implementability.
+  \item Deployable models require evidence of stable behavior under realistic constraints.
+\end{itemize}
+
+Evidence generated under one classification does not automatically transfer to another.
