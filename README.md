@@ -7,12 +7,12 @@ This repository contains a comprehensive **Model Governance Framework** covering
 - declared operating context requirements,
 - evidence and validation standards,
 - change management and scope preservation,
-- deployment approval and capital allocation controls,
+- deployment approval and capital allocation controls (governance, not execution),
 - monitoring, escalation, and retirement,
 - roles, accountability, and exception handling.
 
 It is written for **investment firms, risk committees, and ML platform teams** who need governance that is
-operational, auditable, and enforceable - not aspirational.
+operational, auditable, and enforceable—not aspirational.
 
 ---
 
@@ -21,6 +21,9 @@ operational, auditable, and enforceable - not aspirational.
 This framework exists to prevent a common failure mode in model-driven investing:
 
 > Models are validated under one context and quietly used under another.
+
+The framework provides a structured way to prevent this drift while enabling responsible,
+context-aware use of models at scale.
 
 The framework enforces:
 - **Contextual integrity** (validity is conditional),
@@ -43,8 +46,8 @@ The framework enforces:
 
 ## Repository contents
 
-- **Model and Governance Framework (PDF)**
-  `Model_and_Governance_Framework.pdf` (primary artifact)
+- **Model Governance Framework (PDF)**
+  `Model_and_Governance_Framework.pdf` *(primary artifact)*
 
 Optional supporting artifacts you may add later:
 - Summary/checklist extracts
@@ -82,9 +85,33 @@ A practical adoption path:
 
 ---
 
+## Attribution & Motivation
+
+This framework is provided for adaptation and internal use by investment firms and
+governance teams.
+
+If you find it useful, attribution is appreciated but not required. When referencing
+this framework externally, please cite:
+
+Colin Alexander, CFA, CIPM — *Model Governance Framework*
+
+---
+
+### Motivation
+
+This framework grew out of practical experience applying quantitative models in
+institutional settings where clarity of intent, operating context, and accountability
+are essential.
+
+The goal is to enable organizations to use models more effectively—by making
+assumptions explicit, preserving decision integrity across time and regimes, and
+supporting informed human judgment alongside increasingly capable systems.
+
+---
+
 ## Relationship to MandateOS
 
-If you have seen `MandateOS`, it is a reference implementation of governance-first, mandate-bound judgment.
+If you have seen [`MandateOS`](https://github.com/colinalexander/buffet), it is a reference implementation of governance-first, mandate-bound judgment.
 This framework is broader: it governs model lifecycle and deployment across a firm, independent of any
 specific software system.
 
